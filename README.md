@@ -9,3 +9,9 @@ It also allows the user to add due dates to tasks and mark tasks as finished.
 
 ## Goal of the Project
 
+
+## Project Structure
+
+
+## Classes Overview
+
