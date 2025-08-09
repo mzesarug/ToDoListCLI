@@ -95,4 +95,13 @@ class Date:
         return not self.__eq__(other)
 
     def __str__(self):
+        return f"{self.year:04d}-{self.month:02d}-{self.day:02d}-{self.hour:02d}:{self.minute:02d}"
+    
+    def getDateUntilDay(self):
         return f"{self.year:04d}-{self.month:02d}-{self.day:02d}"
+    
+    def getDateUntilHour(self):
+        return f"{self.year:04d}-{self.month:02d}-{self.day:02d}-{self.hour:02d}"
+    
+    def getDateFull(self):
+        return f"{self.year:04d}-{self.month:02d}-{self.day:02d}-{self.hour:02d}:{self.minute:02d}"
