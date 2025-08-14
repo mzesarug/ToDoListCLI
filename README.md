@@ -28,11 +28,11 @@ Users can also add due dates to tasks and mark tasks as finished.
 
 ## Team Members
 
--Mohammed Zaroog
--Rayhan Karim
--Kartik Dewan
--Daniel Bode Sojobi
--Joel Cherian
+- Mohammed Zaroog
+- Rayhan Karim
+- Kartik Dewan
+- Daniel Bode Sojobi
+- Joel Cherian
 
 ## Dependencies
 
