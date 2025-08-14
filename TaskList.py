@@ -2,23 +2,25 @@ import heapq
 
 class TaskList:
 
-    __deletedTask = '<deleted>'
-
     def __init__(self):
         self.__tasks = []
         self.__taskMap = {}
         self.__counter = 0
+        self.__deletedTask = '<deleted>'
 
     def add_task(self, task):
+        # we cannot have duplicates, the priority queueu will automatically delete them if trying to add an exact duplicate
+        if task in self.__taskMap:
+            self.remove_task(task)
         count = self.__counter
         self.__counter += 1
-        entry = (task.getDeadline(), count, task)
+        entry = [task.getDeadline(), count, task]
         self.__taskMap[task] = entry
         heapq.heappush(self.__tasks, entry)
 
     def remove_task(self, task):
         entry = self.__taskMap.pop(task)
-        entry[-1] = self.deletedTask
+        entry[-1] = self.__deletedTask
 
     def pop_task(self):
         while self.__tasks:

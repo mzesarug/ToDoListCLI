@@ -93,6 +93,9 @@ class Date:
             print("Error: Comparison with non-Date object")
             return True
         return not self.__eq__(other)
+    
+    def __hash__(self):
+        return hash((self.__year, self.__month, self.__day, self.__hour, self.__minute))
 
     def __str__(self):
         return f"{self.__year:04d}-{self.__month:02d}-{self.__day:02d}-{self.__hour:02d}:{self.__minute:02d}"

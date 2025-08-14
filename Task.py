@@ -46,6 +46,9 @@ class Task:
 
     def getCategory(self):
         return self.__category
+    
+    def __hash__(self):
+        return hash((self.__deadline, self.__name, self.__description, self.__category, self.__isFinished))
 
     def __str__(self):
-        return f"Task(name={self.name}, description={self.description}, completed={self.completed}, category={self.category}, deadline={self.deadline})"
+        return f"Task(name={self.__name}, description={self.__description}, completed={self.__isFinished}, category={self.__category}, deadline={self.__deadline})"
