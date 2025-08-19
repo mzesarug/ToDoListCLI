@@ -18,22 +18,28 @@ print(task2)
 print(task3)
 
 taskList = TaskList()
-taskList.add_task(task)
-taskList.add_task(task2)
-taskList.add_task(task3)
+taskList.addTask(task)
+taskList.addTask(task2)
+taskList.addTask(task3)
 
 print("after adding into task list, printing list")
-for task in taskList.get_tasks():
+for task in taskList.getTasks():
     print(task)
 
-for task in taskList.get_tasks():
+for task in taskList.getTasks():
     print(task)
 
-taskList.remove_task(task2)
+taskList.removeTask(task2)
 
-"removing task2 with 2024 date"
-for task in taskList.get_tasks():
+print("removing task2 with 2024 date")
+for task in taskList.getTasks():
     print(task)
 
-for task in taskList.get_tasks():
+for task in taskList.getTasks():
+    print(task)
+
+print("clearing task list")
+taskList.clearTasks()
+
+for task in taskList.getTasks():
     print(task)

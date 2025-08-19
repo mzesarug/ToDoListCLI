@@ -8,39 +8,40 @@ class TaskList:
         self.__counter = 0
         self.__deletedTask = '<deleted>'
 
-    def add_task(self, task):
+    def addTask(self, task):
         # we cannot have duplicates, the priority queueu will automatically delete them if trying to add an exact duplicate
-        if task in self.__taskMap:
-            self.remove_task(task)
+        if task.__str__ in self.__taskMap:
+            self.removeTask(task)
         count = self.__counter
         self.__counter += 1
         entry = [task.getDeadline(), count, task]
-        self.__taskMap[task] = entry
+        self.__taskMap[task.__str__] = entry
         heapq.heappush(self.__tasks, entry)
 
-    def remove_task(self, task):
-        entry = self.__taskMap.pop(task)
+    def removeTask(self, task):
+        entry = self.__taskMap.pop(task.__str__)
         entry[-1] = self.__deletedTask
 
     def pop_task(self):
         while self.__tasks:
             deadline, count, task = heapq.heappop(self.__tasks)
             if task is not self.__deletedTask:
-                del self.__taskMap[task]
+                del self.__taskMap[task.__str__]
                 return task
-        raise KeyError('task list is empty')
+        # raise KeyError('task list is empty')
+        print("Error: Task list is empty")
 
-    def get_tasks(self):
+    def getTasks(self):
         returnList = []
         while self.__tasks:
             returnList.append(self.pop_task())
         for task in returnList:
-            self.add_task(task)
+            self.addTask(task)
 
         return returnList
                 
 
-    def clear_tasks(self):
+    def clearTasks(self):
         self.tasks.clear()
 
     def __str__(self):
