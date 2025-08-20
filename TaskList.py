@@ -23,7 +23,7 @@ class TaskList:
         entry = self.__taskMap.pop(task)
         entry[-1] = self.__deletedTask
 
-    def pop_task(self):
+    def popTask(self):
         while self.__tasks:
             deadline, count, task = heapq.heappop(self.__tasks)
             if task is not self.__deletedTask:
