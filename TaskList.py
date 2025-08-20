@@ -1,5 +1,6 @@
 import heapq
 
+
 class TaskList:
 
     def __init__(self):
@@ -10,39 +11,34 @@ class TaskList:
 
     def addTask(self, task):
         # we cannot have duplicates, the priority queueu will automatically delete them if trying to add an exact duplicate
-        if task.__str__ in self.__taskMap:
+        if task in self.__taskMap:
             self.removeTask(task)
         count = self.__counter
         self.__counter += 1
         entry = [task.getDeadline(), count, task]
-        self.__taskMap[task.__str__] = entry
+        self.__taskMap[task] = entry
         heapq.heappush(self.__tasks, entry)
 
     def removeTask(self, task):
-        entry = self.__taskMap.pop(task.__str__)
+        entry = self.__taskMap.pop(task)
         entry[-1] = self.__deletedTask
 
     def pop_task(self):
         while self.__tasks:
             deadline, count, task = heapq.heappop(self.__tasks)
             if task is not self.__deletedTask:
-                del self.__taskMap[task.__str__]
+                if task in self.__taskMap:
+                    del self.__taskMap[task]
                 return task
         # raise KeyError('task list is empty')
         print("Error: Task list is empty")
 
     def getTasks(self):
-        returnList = []
-        while self.__tasks:
-            returnList.append(self.pop_task())
-        for task in returnList:
-            self.addTask(task)
-
-        return returnList
-                
+        return [entry[2] for entry in self.__tasks if entry[2] != self.__deletedTask]
 
     def clearTasks(self):
-        self.tasks.clear()
+        self.__tasks.clear()
 
     def __str__(self):
-        return "\n".join(self.tasks) if self.tasks else "No tasks available."
+        return "\n".join(str(entry[2]) for entry in self.__tasks if entry[2] != self.__deletedTask) if self.__tasks else "No tasks available."
+
