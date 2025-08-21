@@ -34,7 +34,15 @@ class TaskList:
         print("Error: Task list is empty")
 
     def getTasks(self):
-        return [entry[2] for entry in self.__tasks if entry[2] != self.__deletedTask]
+        returnList = []
+        while self.__tasks:
+            task = self.popTask()
+            if task is not self.__deletedTask and task is not None:
+                returnList.append(task)
+        for task in returnList:
+            self.addTask(task)
+
+        return returnList
 
     def clearTasks(self):
         self.__tasks.clear()
