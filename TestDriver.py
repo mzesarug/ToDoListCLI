@@ -38,8 +38,12 @@ for task in taskList.getTasks():
 for task in taskList.getTasks():
     print(task)
 
+print(taskList)
+
 print("clearing task list")
 taskList.clearTasks()
 
 for task in taskList.getTasks():
     print(task)
+
+print(taskList)
