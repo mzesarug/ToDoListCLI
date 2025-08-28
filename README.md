@@ -1,10 +1,9 @@
 # ToDoListCLI
 
-
 ## Description
 
 This program is written in Python and uses object-oriented programming principles.
-It's a command-line app that allows the user to add, remove, and categorize tasks. 
+It's a command-line app that allows the user to add, remove, and categorize tasks.
 Users can also add due dates to tasks and mark tasks as finished.
 
 ## Features
@@ -22,9 +21,7 @@ Users can also add due dates to tasks and mark tasks as finished.
 
 ## Project Structure
 
-
 ## Classes Overview
-
 
 ## Team Members
 
@@ -36,3 +33,4 @@ Users can also add due dates to tasks and mark tasks as finished.
 
 ## Dependencies
 
+- pip install textual-dev
